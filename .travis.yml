@@ -9,17 +9,14 @@ addons:
   postgresql: '11.2'
 
 services:
-  - postgresql
+  - postgresql: '9.6'
 
 env:
   - MIX_ENV=test
 
 before_script:
-  - psql --version
-  - psql -c 'SELECT version();' -U postgres
-  - psql -c 'create database travis_ci_test;' -U postgres
   - cp config/travis.exs config/test.exs
-  - mix do ecto.migrate
+  - mix do ecto.setup
 
 script:
   - mix test
