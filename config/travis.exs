@@ -7,7 +7,7 @@ config :elixir_test, ElixirTest.Endpoint,
   server: true
 
 # Print only warnings and errors during test
-config :logger, level: :warn
+config :logger, level: :debug
 
 # Configure your database
 config :elixir_test, ElixirTest.Repo,
