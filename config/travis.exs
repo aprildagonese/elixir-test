@@ -14,6 +14,6 @@ config :elixir_test, ElixirTest.Repo,
   adapter: Ecto.Adapters.Postgres,
   username: "postgres",
   password: "",
-  database: "elixir_test",
+  database: "elixir_test_test",
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox
