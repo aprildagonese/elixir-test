@@ -10,8 +10,8 @@ services:
   - postgresql
 
 before_script:
-  - psql -c 'create database elixir_test;' -U postgres
   - cp config/travis.exs config/test.exs
+  - psql -c 'create database travis_ci_test;' -U postgres
   - mix do ecto.create, ecto.migrate
 
 script:
