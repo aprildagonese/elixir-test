@@ -3,6 +3,8 @@ language: elixir
 elixir:
   - 1.8.2
 
+otp_release: "20.1"
+
 addons:
   postgresql: '11.2'
 
@@ -13,8 +15,11 @@ env:
   - MIX_ENV=test
 
 before_script:
+  - psql --version
+  - psql -c 'SELECT version();' -U postgres
+  - psql -c 'create database travis_ci_test;' -U postgres
   - cp config/travis.exs config/test.exs
-  - mix do ecto.create, ecto.migrate
+  - mix do ecto.migrate
 
 script:
   - mix test
