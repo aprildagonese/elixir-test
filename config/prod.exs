@@ -15,6 +15,7 @@ config :logger, level: :info
 
 config :elixir_test, ElixirTestWeb.Endpoint,
   http: [port: {:system, "PORT"}],
+  cache_static_manifest: "priv/static/cache_manifest.json",
   load_from_system_env: true,
   url: [host: "tranquil-dawn-86335.herokuapp.com", port: 443],
   force_ssl: [rewrite_on: [:x_forwarded_proto]],
