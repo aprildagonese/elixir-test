@@ -14,6 +14,7 @@ use Mix.Config
 config :logger, level: :info
 
 config :elixir_test, ElixirTestWeb.Endpoint,
+  http: [port: {:system, "PORT"}],
   load_from_system_env: true,
   url: [host: "tranquil-dawn-86335.herokuapp.com", port: 443],
   force_ssl: [rewrite_on: [:x_forwarded_proto]],
