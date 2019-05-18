@@ -2,7 +2,7 @@ defmodule ElixirTestWeb.Endpoint do
   use Phoenix.Endpoint, otp_app: :elixir_test
 
   socket "/socket", ElixirTestWeb.UserSocket,
-    websocket: true,
+    websocket: false,
     longpoll: false
 
   # Serve at "/" the static files from "priv/static" directory.

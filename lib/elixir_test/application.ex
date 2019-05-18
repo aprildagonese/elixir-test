@@ -6,12 +6,10 @@ defmodule ElixirTest.Application do
   use Application
 
   def start(_type, _args) do
-    # List all child processes to be supervised
+    import Supervisor.Spec
     children = [
-      # Start the Ecto repository
-      ElixirTest.Repo,
-      # Start the endpoint when the application starts
-      ElixirTestWeb.Endpoint
+      supervisor(ElixirTest.Repo, []),
+      supervisor(ElixirTestWeb.Endpoint, []),
       # Starts a worker by calling: ElixirTest.Worker.start_link(arg)
       # {ElixirTest.Worker, arg},
     ]
