@@ -22,7 +22,7 @@ config :elixir_test, ElixirTest.Repo,
 adapter: Ecto.Adapters.Postgres,
 url: System.get_env("DATABASE_URL"),
 pool_size: String.to_integer(System.get_env("POOL_SIZE") || "18"),
-ssl: true
+ssl: false
 
 # ## SSL Support
 #
@@ -30,15 +30,8 @@ ssl: true
 # to the previous section and set your `:url` port to 443:
 #
       config :elixir_test, ElixirTestWeb.Endpoint,
-        url: [scheme: "https", host: "tranquil-dawn-86335.herokuapp.com", port: 443],
+        url: [scheme: "http", host: "tranquil-dawn-86335.herokuapp.com", port: 443],
         force_ssl: [rewrite_on: [:x_forwarded_proto]],
-       https: [
-         :inet6,
-         port: 443,
-         cipher_suite: :strong,
-         keyfile: System.get_env("SOME_APP_SSL_KEY_PATH"),
-         certfile: System.get_env("SOME_APP_SSL_CERT_PATH")
-         ]
 #
 # The `cipher_suite` is set to `:strong` to support only the
 # latest and more secure SSL ciphers. This means old browsers
