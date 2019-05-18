@@ -10,7 +10,7 @@ use Mix.Config
 # which you should run after static files are built and
 # before starting your production server.
 config :elixir_test, ElixirTestWeb.Endpoint,
-  url: [host: "elixirtestapp.com", port: 80],
+  url: [host: "elixirtest.com", port: 80],
   cache_static_manifest: "priv/static/cache_manifest.json",
   secret_key_base: System.get_env("SECRET_KEY_BASE")
 
