@@ -23,7 +23,8 @@ config :logger, level: :info
 #
 #     config :elixir_test, ElixirTestWeb.Endpoint,
 #       ...
-#       url: [host: "example.com", port: 443],
+        url: [scheme: "https", host: "tranquil-dawn-86335", port: 443],
+        force_ssl: [rewrite_on: [:x_forwarded_proto]],
 #       https: [
 #         :inet6,
 #         port: 443,
