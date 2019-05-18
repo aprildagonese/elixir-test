@@ -1,22 +1,21 @@
 language: elixir
-
 elixir:
-  - 1.8.2
-
-otp_release: "20.1"
-
+- 1.8.2
+otp_release: '20.1'
 addons:
   postgresql: '11.2'
-
 services:
-  - postgresql: '9.6'
-
+- postgresql: '11.2'
 env:
-  - MIX_ENV=test
-
+- MIX_ENV=test
 before_script:
-  - cp config/travis.exs config/test.exs
-  - mix do ecto.setup
-
+- cp config/travis.exs config/test.exs
+- mix do ecto.create, ecto.migrate
 script:
-  - mix test
+- mix test
+deploy:
+  provider: heroku
+  app: tranquil-dawn-86335
+  buildpack: https://github.com/HashNuke/heroku-buildpack-elixir.git
+  api_key:
+    secure: pgZPjzfut+UEhK5AdbxZ66EQyn1lZVfu1SzcW4rGd9EQuzT0w2xar/9yFeOXkBhnSBlPg0FHj9FP3zyZrFXDGD7XAVNX7w4oolWY8dDJ3i9+k8VmkBe9GbLUjggv+pfPaMRz/77a8ifuaz9n1Eetvg4XL/ZbXxs2rRjRfnwYid6lYHahX0JRBwvSCD4yXU6tlgVpX1rWVozpPoU4hE5F4ZmLO4HSOe7K0yhnvWcY0cycJnaULQCf7Yp4idn58PyUB7X8FNpVnMVPtn6y0Su+iyK2ikX51iXS9Ug4zuBRYS4Ah2AfoteJSLKS8miDYH0h9eRuIRYpcseW8mFhGP8YDV4VwZGHXqlqbrIU7J380bZBFKTIFUOFZbvNtF9OmShsZFtM2RvGylNaWT1IQ0g3YWxefQooA2gbyqwQgKyV8r41yuFVFvDDyEsrHcaPrLX0zaaQnjxU9LMKRGEOLy52RM9GU4vOCs0tlaCMo//vJ2/AzmtluNG1134IWvaRpv+fnuG7SHal52AMcjqpAe8iqM9MRANqkBD7vdDFkdft33uoe2xuVaoANZL9b4or7q1ThOqTcspwPz36UkR4svIwD8/+OlhgUK0mQxUUYjT5N0mwxSYzcC4Z0Iuvek7c4CtqfIxJgjWcdah0rvmEMVQOAbPUTptj/iw1Ula2Vugy9+s=
